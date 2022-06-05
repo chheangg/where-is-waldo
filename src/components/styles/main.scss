@@ -1,0 +1,62 @@
+body {
+  box-sizing: border-box;
+  font-family: 'Kdam Thmor Pro', sans-serif;
+  background-color: #f3f4f6;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-container {
+  padding: 0 10vw;
+  background-color: #e5e7eb;
+
+  .logo-letter {
+    margin: 0;
+    padding: 1rem 0;
+    font-size: 2rem;
+    font-weight: 400;
+    color: #16a34a;
+  }
+}
+
+.main-container {
+  margin: 0rem 10vw;
+  padding: 2rem 0;
+
+  .level-header-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid gray;
+
+    * {
+      display: inline-block;
+    }
+  }
+
+  .level-header {
+    margin: 0;
+    font-weight: 400;
+    font-size: 2rem;
+  }
+
+  .level-amount {
+    margin: 0;
+    font-size: 1.25rem;
+    padding: 0.75rem;
+    border-radius: 25px;
+    background-color: #e5e7eb;
+    color: gray;
+  }
+}
+
+.level-box {
+  .preview {
+    width: 192px;
+    height: 108px;
+  }
+}
