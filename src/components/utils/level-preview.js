@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 const LevelPreview = ({location, name, preview, difficulty}) => {
   const getDifficulty = () => {
     switch (difficulty) {
@@ -22,6 +23,13 @@ const LevelPreview = ({location, name, preview, difficulty}) => {
       </div>
     </Link>
   )
+}
+
+LevelPreview.propTypes = {
+  location: PropTypes.string,
+  name: PropTypes.string,
+  preview: PropTypes.string,
+  difficulty: PropTypes.string,
 }
 
 export default LevelPreview;

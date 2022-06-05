@@ -12,7 +12,11 @@ const App = () => {
     <Routes>
       <Route path='/' element={<Layout config={config}/>}>
         <Route index element={<Main />} />
-        <Route path='level-one' element={<Level image={config[0].image} />} />
+        {config.map((level) => { 
+        return <Route path={level.location} key={level.name} element={
+          <Level image={level.image} characters={level.characters} />
+        } /> 
+        })}
       </Route>
     </Routes>
     </BrowserRouter>
