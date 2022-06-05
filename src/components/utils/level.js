@@ -2,7 +2,9 @@ import '../styles/level.scss';
 
 const Level = ({image}) => {
   return (
-    <img className="level-img" alt='level' src={image}></img>
+    <div className='level-img-wrapper'>
+      <img className="level-img" alt='level' src={image}></img>
+    </div>
   );
 }
 
