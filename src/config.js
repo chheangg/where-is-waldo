@@ -1,17 +1,17 @@
-import levelOne from './components/assets/level-one.png';
-import LevelOnePreview from './components/assets/level-one-preview.png';
+import levelOne from './components/assets/level-one.jpg';
 import defaultIcon from './components/assets/account-circle.svg';
+import waldoIcon from './components/assets/waldo.png';
 const config = [
   {
-    name: 'រាមកេតិ៍',
+    name: 'Siege Waldo',
     location: 'level-one',
     image: levelOne,
     difficulty: 'ស្រួល',
-    preview: LevelOnePreview,
+    preview: levelOne,
     characters: [
       {
-        name: 'foo',
-        image: defaultIcon,
+        name: 'Waldo',
+        image: waldoIcon,
       },
       {
         name: 'bar',

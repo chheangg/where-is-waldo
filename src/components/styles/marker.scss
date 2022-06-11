@@ -1,0 +1,55 @@
+.target-mark-container {
+  position: absolute;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: auto auto;
+
+  .right {
+    left: 64px;
+  }
+
+  .left {
+    right: 64px;
+  }
+
+  .target-list {
+    position: absolute;
+    display: grid;
+    align-items: center;
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+      display: grid;
+    }
+
+    li {
+      background-color: #f3f4f6;
+      margin: 0;
+      padding: 0.3rem 0.5rem;
+      border-bottom: 1px solid gray;
+      transition: 200ms ease-out;
+      cursor: pointer;
+    }
+
+    li:last-of-type {
+      border-bottom: none;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    li:hover {
+      background-color: #e5e7eb;
+    }
+
+    li:first-of-type {
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+    }
+  }
+}

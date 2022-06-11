@@ -15,6 +15,7 @@ const Main = () => {
       <div className='level-container'>
         {config.map((level) => {
         return <LevelPreview 
+                key={level.name}
                 name={level.name}
                 location={level.location}
                 preview={level.preview}

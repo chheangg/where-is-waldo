@@ -16,7 +16,6 @@ const Timer = ({time}) => {
       if ( time >= 60) {
         hours = 0;
         minutes = Math.floor(time / 60);
-        console.log(minutes);
         seconds = time - minutes * 60;
       } else {
         seconds = time;
@@ -26,8 +25,8 @@ const Timer = ({time}) => {
     return `${hours}:${minutes}:${seconds}`
   }
   return (
-    <div className='timer'>
-      {getTime()}
+    <div className='timer-container'>
+      <p className='timer'>{getTime()}</p>
     </div>
   )
 }
