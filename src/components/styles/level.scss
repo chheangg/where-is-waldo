@@ -11,18 +11,117 @@
   position: relative;
 }
 
-.timer-container {
-  position: fixed;
-  left: 2rem;
-  top: 1rem;
+.utility-wrapper {
+  position: sticky;
+  float: left;
+  width: 0;
+  display: flex;
+  gap: 1rem;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   z-index: 2;
+
+  .timer-container {
+    z-index: 2;
+  
+    .timer {
+      margin: 0;
+      margin-left: 1rem;
+      margin-top: 1rem;
+      padding: 0.25rem 0.5rem;
+      font-size: 1.5rem;
+      background-color: #16a34a;
+      color: white;
+      border-radius: 25px;
+    }
+  }
 }
 
-.timer {
+.progress-btn {
+  background: none;
+  border: none;
   margin: 0;
-  padding: 0.25rem 0.5rem;
-  font-size: 1.5rem;
-  background-color: #16a34a;
-  color: white;
-  border-radius: 25px;
+  padding: 0;
+  align-self: start;
+  margin-top: 1rem;
+
+  img {
+    background-color: #16a34a;
+    border-radius: 50%;
+    width: 2.3rem;
+    height: auto;
+    cursor: pointer;
+  }
+}
+
+.objective-container {
+  display: grid;
+  background-color: #f9fafb;
+  margin-top: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 4px -1px gray;
+
+  .character-box {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    justify-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+
+    img {
+      width: auto;
+      height: 4rem;
+    }
+
+    .character-name {
+      font-size: 1rem;
+    }
+
+    .status {
+      grid-row: 1 / -1;
+      grid-column: 2 / -1;
+      margin-left: 1.5rem;
+    }
+
+    .status img {
+      height: 2.5rem;
+      width: auto;
+    }
+  }
+}
+
+.finished-wrapper {
+  position: fixed;
+  background-color: rgba(0,0,0, 0.5);
+  z-index: 3;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  .finished-container {
+    background-color: #f9fafb;
+    margin: 10vh 30vw;
+    padding: 1rem;
+    display: grid;
+    justify-items: center;
+    
+    .timer {
+      font-size: 2rem;
+      margin: 0;
+    }
+
+    a {
+      background-color: #16a34a;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 25px;
+    }
+
+
+  }
 }

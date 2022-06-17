@@ -13,14 +13,6 @@ const config = [
         name: 'Waldo',
         image: waldoIcon,
       },
-      {
-        name: 'bar',
-        image: defaultIcon,
-      },
-      {
-        name: 'foobar',
-        image: defaultIcon,
-      },
     ],
   }
 ]

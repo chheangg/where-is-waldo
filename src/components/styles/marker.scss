@@ -6,10 +6,12 @@
 
   .right {
     left: 64px;
+    margin-left: 1rem;
   }
 
   .left {
     right: 64px;
+    margin-right: 1rem;
   }
 
   .target-list {
@@ -34,8 +36,8 @@
 
     li:last-of-type {
       border-bottom: none;
-      border-bottom-left-radius: 10px;
-      border-bottom-right-radius: 10px;
+      border-bottom-left-radius: 5px;
+      border-bottom-right-radius: 5px;
     }
 
     li:hover {
@@ -43,8 +45,8 @@
     }
 
     li:first-of-type {
-      border-top-left-radius: 10px;
-      border-top-right-radius: 10px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
     }
 
     button {
@@ -52,4 +54,8 @@
       border: none;
     }
   }
+}
+
+.flag-icon {
+
 }
