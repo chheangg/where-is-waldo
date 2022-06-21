@@ -5,11 +5,11 @@ import Tutorial from './tutorial';
 import Timer from './timer.js';
 import Marker from './marker';
 import Flag from './flag';
-
+import { query, where, collection, getDocs, addDoc } from 'firebase/firestore';
 import Finished from './finished';
 import Progress from './progress';
 
-const Level = ({image, characters}) => {
+const Level = ({image, characters, location, db}) => {
   const [time, setTime] = useState(0);
   const [finished, setFinished] = useState(false);
   const [selected, setSelected] = useState([]);
@@ -18,10 +18,30 @@ const Level = ({image, characters}) => {
   const [isDoneTutorial, setIsDoneTutorial] = useState(false);
   const [timer, setTimer] = useState(0);
 
+  const addToLeaderboard = async (name, time) => {
+    const lbRef = collection(db, 'leaderboard', location, 'ranking');
+    const data = {
+      name,
+      time,
+    }
+    await addDoc(lbRef, data);
+  }
+
   const setDoneTutorial = () => {
     setIsDoneTutorial(!isDoneTutorial);
   }
 
+  const getCharacterPos = async (character) => {
+    const chars = [];
+    const charRef = collection(db, 'characters');
+    const charQuery = query(charRef, where('character', '==', character), where('level', '==', location));
+    const charResult = await getDocs(charQuery);
+    charResult.forEach((obj) => {
+      chars.push(obj.data());
+    })
+
+    return chars[0];
+  }
   const addMarker = (event) => {
     const ratio = {
       ratioX: event.target.width / event.target.naturalWidth,
@@ -63,6 +83,7 @@ const Level = ({image, characters}) => {
   useEffect(() => {
     if (selected.length === characters.length) {
       setFinished(true);
+      addToLeaderboard('guest', timer);
     }
   }, [selected]);
 
@@ -89,7 +110,7 @@ const Level = ({image, characters}) => {
       {finished ? <Finished time={time} />  : null}
       <div className='level-img-wrapper'>
         {markerPos.length > 0 ? markerPos.map((cord) => <Flag key={`${cord.posX}-${cord.posY}`} cord={cord} />) : null }
-        {testMarker ? <Marker utils={{comparePos, addCharacter}} markerInfo={testMarker} characters={characters.map((character) => character.name)} /> : null} 
+        {testMarker ? <Marker utils={{comparePos, addCharacter, getCharacterPos}} markerInfo={testMarker} characters={characters.map((character) => character.name)} /> : null} 
         <img onClick={(event) => { addMarker(event)}} className="level-img" alt='level' src={image}></img>
       </div>
     </>
@@ -99,6 +120,8 @@ const Level = ({image, characters}) => {
 Level.propTypes = {
   image: PropTypes.string,
   characters: PropTypes.array,
+  name: PropTypes.string,
+  db: PropTypes.object,
 }
 
 export default Level;

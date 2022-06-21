@@ -20,26 +20,14 @@ const Marker = ({characters, markerInfo, utils}) => {
     left: `${markerInfo.cord.posX - 32}px`,
   }
 
-  const getCharacterCord = (event) => {
-    if (event.target.textContent === 'Waldo') {
-      return {
-        name: 'waldo',
-        pos: {
-          posX1: 461,
-          posY1: 1531,
-          posX2: 484,
-          posY2: 1593,
-        }
-      }
-    }
-  }
-
   const characterListener = (event) => {
-    const character = getCharacterCord(event);
-    const result = utils.comparePos(markerInfo, character.pos);
-    if (result === true) {
-      utils.addCharacter(character.name, markerInfo.cord);
-    }
+    const getCharacter = utils.getCharacterPos(event.target.textContent.toLowerCase());
+    getCharacter.then((character) => {
+      const result = utils.comparePos(markerInfo, character.pos);
+      if (result === true) {
+        utils.addCharacter(character.name, markerInfo.cord);
+      }
+    })
   }
 
   return (

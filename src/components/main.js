@@ -1,7 +1,7 @@
 import config from "../config";
 import LevelPreview from './utils/level-preview';
 
-const Main = () => {
+const Main = ({db}) => {
   return (
     <main className='main-container'>
       <div className='level-header-container'>
@@ -20,6 +20,7 @@ const Main = () => {
                 location={level.location}
                 preview={level.preview}
                 difficulty={level.difficulty}
+                db={db}
               />
       })}
       </div>
