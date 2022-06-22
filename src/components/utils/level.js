@@ -9,7 +9,7 @@ import { query, where, collection, getDocs, addDoc } from 'firebase/firestore';
 import Finished from './finished';
 import Progress from './progress';
 
-const Level = ({image, characters, location, db}) => {
+const Level = ({name, image, characters, location, db}) => {
   const [time, setTime] = useState(0);
   const [finished, setFinished] = useState(false);
   const [selected, setSelected] = useState([]);
@@ -83,7 +83,11 @@ const Level = ({image, characters, location, db}) => {
   useEffect(() => {
     if (selected.length === characters.length) {
       setFinished(true);
-      addToLeaderboard('guest', timer);
+      if (name) {
+        addToLeaderboard(name, timer);
+      } else {
+        addToLeaderboard('guest', timer);
+      }
     }
   }, [selected]);
 
@@ -120,7 +124,7 @@ const Level = ({image, characters, location, db}) => {
 Level.propTypes = {
   image: PropTypes.string,
   characters: PropTypes.array,
-  name: PropTypes.string,
+  location: PropTypes.string,
   db: PropTypes.object,
 }
 

@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Where is Waldo? The app game
+This project was made with ReactJS and Scss on the front-end side and Firebase on the back-end side. You can visit [this link](https://where-is-waldo-86574.web.app/) to play the live game with working leaderboard and databases.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This was also a project from TheOdinProject.
 
 ## Available Scripts
 

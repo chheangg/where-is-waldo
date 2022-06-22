@@ -1,5 +1,6 @@
 {
   "projects": {
     "default": "where-is-waldo-86574"
-  }
+  },
+  "targets": {}
 }
